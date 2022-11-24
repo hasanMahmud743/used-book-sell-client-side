@@ -1,17 +1,20 @@
-import React from 'react';
-import AdvertisedItem from '../AdvertisedItem/AdvertisedItem';
-import Banner from '../Banner/Banner';
-import Slider from '../Slider/Slider';
+import React from "react";
+import useTitle from "../../../Hooks/UseTitle";
+import AdvertisedItem from "../AdvertisedItem/AdvertisedItem";
+import Banner from "../Banner/Banner";
+import Categories from "../Categories/Categories";
+import Slider from "../Slider/Slider";
 
 const Home = () => {
-    return (
-        <div>
-             <Slider></Slider>
-             <Banner></Banner>
-              <AdvertisedItem></AdvertisedItem>
-            
-        </div>
-    );
+  useTitle("Home");
+  return (
+    <div>
+      <Slider></Slider>
+      <Categories></Categories>
+      <AdvertisedItem></AdvertisedItem>
+      <Banner></Banner>
+    </div>
+  );
 };
 
 export default Home;
