@@ -13,7 +13,7 @@ const Categories = () => {
             Web Development
           </button>
         </Link>
-        <Link to='/categories/digital marketing'>
+        <Link to='/categories/marketing'>
           {" "}
           <button className="btn btn-outline btn-primary mx-5">
             Digital Marketing
