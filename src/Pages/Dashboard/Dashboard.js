@@ -30,10 +30,10 @@ const Dashboard = () => {
             <Link to='/dashboard/myproduct'> My Product</Link>
             </li>
             <li>
-              <a>All Seller </a>
+            <Link to='/dashboard/allseller'> All Seller</Link>
             </li>
             <li>
-              <a>All Buyer</a>
+            <Link to='/dashboard/allbuyer'> All Buyer</Link>
             </li>
             <li>
               <a>Reported Item</a>
