@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 import Lottie from "react-lottie";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,7 +12,7 @@ const Registration = () => {
   useTitle("Registration");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { createUser, googleSignIn } = useContext(authContext);
+  const { createUser, googleSignIn, profileUpdate } = useContext(authContext);
   const {
     register,
     handleSubmit,
@@ -22,35 +23,56 @@ const Registration = () => {
     setLoading(true);
     const email = data.email;
     const password = data.password;
+    const name = data.name;
+    const sellerAccount = data.seller;
+   
     console.log(data, email, password);
 
     createUser(email, password)
-    .then((data) => {
-      console.log(data.user.email);
-
-      fetch("http://localhost:6500/jwt", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ email: data.user.email }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.token);
-          localStorage.setItem("access-token", data.token);
+      .then((data) => {
+        console.log(data);
+        profileUpdate({
+          displayName: name,
         });
-        setLoading(false);
-      navigate("/");
-    })
-    .catch((err) => {
-      console.log(err)
-      setLoading(false)
-    });
-    
+        const user = {
+          email,
+          name,
+          accountType : sellerAccount ? 'seller' : 'normal'
+        }
 
-    
-    
+        fetch("http://localhost:6500/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: data.user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.token);
+            localStorage.setItem("access-token", data.token);
+          });
+
+        fetch('http://localhost:6500/users',{
+          method: 'post',
+          headers: {
+            'content-type' : 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data)
+          toast.success('user created and added to DB successfully')
+        })
+        
+        setLoading(false);
+        // navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -71,8 +93,8 @@ const Registration = () => {
           });
       })
       .catch((err) => {
-        console.log(err)
-        setLoading(false)
+        console.log(err);
+        setLoading(false);
       });
   };
 
@@ -84,6 +106,7 @@ const Registration = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
   return (
     <div>
       <div className=" md:p-20  bg-base-100">
@@ -173,6 +196,17 @@ const Registration = () => {
                       </Link>
                       Page
                     </p>
+                  </label>
+                </div>
+
+                <div className="form-control">
+                  <label className=" flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-xs"
+                      {...register("seller")}
+                    />
+                    <span className="label-text ml-4">Seller Account</span>
                   </label>
                 </div>
 

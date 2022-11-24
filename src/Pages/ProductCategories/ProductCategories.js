@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import { authContext } from "../../Context/Contexts";
@@ -11,7 +12,22 @@ const ProductCategories = () => {
     e.preventDefault()
     const phone = e.target.phone.value
     const address = e.target.address.value
-    console.log(phone, address)
+    const  order = {phone, address, email: user.email }
+    console.log(order)
+    fetch('http://localhost:6500/categories',{
+        method: 'post',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(order) 
+    })
+    .then(res => res.json())
+    .then(data=>{
+        console.log(data)
+        toast.success('Your data added successfully')
+        e.target.reset()
+    })
+
 
     
   }
@@ -140,7 +156,7 @@ const ProductCategories = () => {
                       />
                     </div>
                   </div>
-                  <input  type='submit' className="btn btn-primary mt-4 w-full" value='submit' />
+                  <input   type='submit' className="btn btn-primary mt-4 w-full" value='submit' />
                   {/* <p type='submit' className="btn btn-primary" value='submit' /> */}
                 </form>
                
