@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Main/Main";
 import Blog from "../Pages/Blogs/Blogs";
+import AllOrders from "../Pages/Dashboard/AllUsers/AllUsers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -42,9 +43,11 @@ export const router = createBrowserRouter([
     path: '/dashboard',
     element: <Dashboard></Dashboard>,
     children: [
-        {
-            
-        }
+       {
+        path: '/dashboard/allusers',
+        element: <AllOrders></AllOrders>,
+        loader: ()=> fetch('http://localhost:6500/orders')
+       }
     ]
    }
 ])

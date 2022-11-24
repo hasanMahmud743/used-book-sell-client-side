@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
@@ -7,11 +7,13 @@ import { authContext } from "../../Context/Contexts";
 const ProductCategories = () => {
   const categories = useLoaderData();
   const {user} = useContext(authContext)
+  const[name, setName] = useState('')
  
   const data = e =>{
     e.preventDefault()
     const phone = e.target.phone.value
     const address = e.target.address.value
+    const itemName = e.target
     const  order = {phone, address, email: user.email }
     console.log(order)
     fetch('http://localhost:6500/categories',{
@@ -108,10 +110,12 @@ const ProductCategories = () => {
 
                   <div className="form-control">
                     <label className="label">
+                  
                       <span className="label-text">Item Name</span>
                     </label>
                     <input
                      defaultValue={cat.item_name}
+                     
                      disabled
                       type="name"
                       placeholder="name"
