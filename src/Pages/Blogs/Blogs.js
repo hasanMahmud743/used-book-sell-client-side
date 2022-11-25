@@ -1,7 +1,6 @@
 import React from "react";
 import useTitle from "../../Hooks/UseTitle";
 
-
 const Blog = () => {
   useTitle("Blog");
   return (
@@ -11,7 +10,8 @@ const Blog = () => {
           Lets have some study on JS React basics.
         </p>
         <p className="text-2xl font-bold pb-4 pl-4">
-          <span>Que:01</span> Difference between SQL and NoSQL{" "}
+          <span>Que:01</span> What are the different ways to manage a state in a
+          React application?{" "}
         </p>
         <p className="text-xl p-4 ">
           <span className="font-bold">Ans:</span> From analysts and engineers to
@@ -26,60 +26,65 @@ const Blog = () => {
         </p>
 
         <p className="text-2xl font-bold p-4">
-          <span>Que:02</span> What is JWT, and how does it work?
+          <span>Que:02</span> How does prototypical inheritance work?
         </p>
         <p className="text-xl p-4 ">
-          <span className="font-bold">Ans:</span> JSON Web Token (JWT) is an
-          open standard (RFC 7519) for securely transmitting information between
-          parties as JSON object. It is compact, readable and digitally signed
-          using a private key/ or a public key pair by the Identity
-          Provider(IdP). So the integrity and authenticity of the token can be
-          verified by other parties involved. The purpose of using JWT is not to
-          hide data but to ensure the authenticity of the data. JWT is signed
-          and encoded, not encrypted. JWT is a token based stateless
-          authentication mechanism. Since it is a client-side based stateless
-          session, server doesn't have to completely rely on a
-          datastore(database) to save session information.{" "}
+          <span className="font-bold">Ans:</span> Every object with its methods
+          and properties contains an internal and hidden property known as
+          [[Prototype]]. The Prototypal Inheritance is a feature in javascript
+          used to add methods and properties in objects. It is a method by which
+          an object can inherit the properties and methods of another object.
+          Traditionally, in order to get and set the [[Prototype]] of an object,
+          we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in
+          modern language, it is being set using __proto__. JWT is signed and
+          encoded, not encrypted. JWT is a token based stateless authentication
+          mechanism. Since it is a client-side based stateless session, server
+          doesn't have to completely rely on a datastore(database) to save
+          session information.{" "}
         </p>
 
         <p className="text-2xl font-bold p-4">
-          <span>Que:03</span> What is the difference between javascript and
-          NodeJS?
+          <span>Que:03</span> What is a unit test? Why should we write unit
+          tests?
         </p>
         <p className="text-xl p-4 ">
           <span className="font-bold">Ans:</span> <br />
-          <span className="font-bold"> Node: </span>
-          For executing JavaScript on the server, Node.js is a bridge,
-          open-source Js runtime environment. JavaScript code can now execute
-          outside of the browser, thanks to Node.js. Node.js has many components
-          and is primarily used for web development. It may run on various
-          operating systems, including Windows, Linux, and Mac OS. It provides a
-          cross-platform runtime environment for developing highly scalable
-          server-side JavaScript applications with event-driven, non-blocking
-          (asynchronous) I/O. <br /> <br />
-          <span className="font-bold"> Javascript: </span> Javascript is a
-          simple object-oriented programming language for building interactive
-          HTML pages. JavaScript is also commonly used in the development of
-          games and mobile applications. The program can only be executed and
-          run in an internet browser because it is interpreted as scripting. To
-          run and execute the code outside the browser, we can utilize Node.js.{" "}
-          <br />
+          Unit testing is a component of test-driven development (TDD), a
+          pragmatic methodology that takes a meticulous approach to building a
+          product by means of continual testing and revision. This testing
+          method is also the first level of software testing, which is performed
+          before other testing methods such as integration testing. Unit tests
+          are typically isolated to ensure a unit does not rely on any external
+          code or functions. Testing can be done manually but is often
+          automated. . <br />
         </p>
 
         <p className="text-2xl font-bold p-4">
-          <span>Que:04</span> How does NodeJS handle multiple requests at the
-          same time?{" "}
+          <span>Que:04</span> React vs. Angular vs. Vue?{" "}
         </p>
         <p className="text-xl p-4 ">
-          <span className="font-bold">Ans:</span> NodeJS receives multiple
-          client requests and places them into EventQueue. NodeJS is built with
-          the concept of event-driven architecture. NodeJS has its own EventLoop
-          which is an infinite loop that receives requests and processes them.
-          EventLoop is the listener for the EventQueue. If NodeJS can process
-          the request without I/O blocking then the event loop would itself
-          process the request and sends the response back to the client by
-          itself. But, it is possible to process multiple requests parallelly
-          using the NodeJS cluster module or worker_threads module.
+          <span className="font-bold">Ans:</span> <br />
+          <span className="font-bold">Angular Vs React:</span> <br />
+          If the choice you’re making is based on Angular vs React alone, then
+          you’ll simply need to consider the pros and cons discussed for those
+          libraries in this post. But overall, keep in mind that both libraries
+          can be used for mobile and web apps, while Angular is generally better
+          for more complex apps that are enterprise-ready. <br />
+          <span className="font-bold">React vs Vue:</span> <br />
+          The choice between React vs Vue is often debated and it’s not an easy
+          one. Vue has a vibrant and ever-growing community and has taken over
+          popularity vs. React in many respects. React developers are still
+          churning out lots of new components and extras, so there’s no sign
+          that React is on the decline either. <br />
+          <span className="font-bold">Angular Vs Vue:</span> <br />
+          In most cases, you probably wouldn’t be deciding between only Angular
+          and Vue. They are vastly different libraries with very different
+          feature sets and learning curves. Vue is the clear choice for less
+          experienced developers, and Angular would be preferred for those
+          working on larger apps. A large library like Angular would require
+          more diligence in keeping up with what’s new, while Vue would be less
+          demanding in this regard and the fact that the two most recent major
+          releases of Vue are in separate repositories helps.
         </p>
       </div>
     </div>
