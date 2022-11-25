@@ -69,7 +69,7 @@ const Blog = () => {
           you’ll simply need to consider the pros and cons discussed for those
           libraries in this post. But overall, keep in mind that both libraries
           can be used for mobile and web apps, while Angular is generally better
-          for more complex apps that are enterprise-ready. <br />
+          for more complex apps that are enterprise-ready. <br />``
           <span className="font-bold">React vs Vue:</span> <br />
           The choice between React vs Vue is often debated and it’s not an easy
           one. Vue has a vibrant and ever-growing community and has taken over
