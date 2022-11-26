@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { authContext } from "../../../Context/Contexts";
 
 const AddProduct = () => {
+  const { user } = useContext(authContext);
+
   const {
     register,
     handleSubmit,
@@ -9,13 +12,14 @@ const AddProduct = () => {
   } = useForm();
 
   const formSubmit = (data) => {
+    const products = {...data , email: user.email }
     console.log(data);
     fetch('http://localhost:6500/products',{
         method: 'post',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(products)
     })
     .then(res => res.json())
     .then(data =>{

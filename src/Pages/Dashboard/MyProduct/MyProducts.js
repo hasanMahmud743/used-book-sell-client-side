@@ -1,8 +1,20 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { authContext } from '../../../Context/Contexts';
 
 const MyProducts = () => {
-    const products = useLoaderData();
+  const [products, setProducts] = useState([]);
+  const { user } = useContext(authContext);
+  console.log(user?.email);
+
+  useEffect(() => {
+    fetch(`http://localhost:6500/products?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      });
+  }, [user?.email]);
+    // const products = useLoaderData();
     return (
         <div>
         <div className="overflow-x-auto">
