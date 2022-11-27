@@ -67,7 +67,7 @@ const Registration = () => {
         })
         
         setLoading(false);
-        // navigate("/");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

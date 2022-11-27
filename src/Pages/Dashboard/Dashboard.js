@@ -6,7 +6,7 @@ import Navbar from "../../Shared/Navbar/Navbar";
 const Dashboard = () => {
   const [users, setUsers] = useState("");
   const { user } = useContext(authContext);
-  console.log(user?.email);
+  console.log(user?.email, users);
 
   useEffect(() => {
     fetch(`http://localhost:6500/allUser?email=${user?.email}`)
@@ -40,14 +40,14 @@ const Dashboard = () => {
             
             {users?.accountType === "normal" && (
               <li>
-                <Link to="/dashboard/allusers">All Orders</Link>
+                <Link to="/dashboard">All Orders</Link>
               </li>
             )}
 
             {users?.accountType === "seller" && (
               <>
                 <li>
-                  <Link to="/dashboard/addproducts"> Add a Product</Link>
+                  <Link to="/dashboard/addproduct"> Add a Product</Link>
                 </li>
                 <li>
                   <Link to="/dashboard/myproduct"> My Product</Link>
@@ -55,7 +55,7 @@ const Dashboard = () => {
               </>
             )}
 
-            {users?.accountType === "admin" && (
+            {users?.accountType === 'admin'  && (
               <>
                 <li>
                   <Link to="/dashboard/allseller"> All Seller</Link>

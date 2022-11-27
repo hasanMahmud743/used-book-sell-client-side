@@ -3,7 +3,9 @@ import { useLoaderData } from 'react-router-dom';
 
 const AllBuyer = () => {
     const buyers = useLoaderData();
-
+const handleDelete = (id) =>{
+  console.log(id)
+}
     return (
         <div>
            <div>
@@ -27,7 +29,7 @@ const AllBuyer = () => {
                   <td>{user?.email}</td>
                   <td>{user.accountType}</td>
                   <td>
-                    <button className="btn  btn-xs btn-circle">
+                    <button onClick={()=>handleDelete(user._id)} className="btn  btn-xs btn-circle">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-3 w-3"

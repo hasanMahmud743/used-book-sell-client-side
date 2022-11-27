@@ -14,6 +14,19 @@ const MyProducts = () => {
         setProducts(data);
       });
   }, [user?.email]);
+
+  const handleDelete = (id) =>{
+    console.log(id)
+    fetch(`http://localhost:6500/products/${id}`,{
+      method: 'delete'
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+      const remaining = products.filter( product => product._id !== id)
+      setProducts(remaining)
+    })
+  }
     // const products = useLoaderData();
     return (
         <div>
@@ -39,7 +52,7 @@ const MyProducts = () => {
                   <td>{user?.year}</td>
                   <td>{user.Location}</td>
                   <td>
-                    <button className="btn  btn-xs btn-circle">
+                    <button onClick={()=> handleDelete(user._id)} className="btn  btn-xs btn-circle">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-3 w-3"

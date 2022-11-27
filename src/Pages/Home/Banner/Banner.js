@@ -6,9 +6,9 @@ const Banner = () => {
         <div className='banner flex  '>
             <div className='width'>
                 <p className='text-6xl py-10 font-bold'>Getting out the best level</p>
-                <p className='text-2xl  pb-10'>Hey, i am the Mahmudul Hasan profession photographer here to give you a proffesional sports photographic service</p>
-                <button className="btn  text-light  btn-info m-3">Request a Shoot</button>
-                <button className="btn  btn-success m-3">Hire Me</button>
+                <p className='text-2xl  pb-10'>Wellcome the world of page of knowledge which may give you a feel of plessure and experience. Try this one just now and share your xp.</p>
+                <button className="btn  text-light  btn-info m-3">Give a request</button>
+                <button className="btn  btn-success m-3">Book order</button>
 
 
                 

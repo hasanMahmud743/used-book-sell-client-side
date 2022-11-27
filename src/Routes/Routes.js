@@ -58,19 +58,19 @@ export const router = createBrowserRouter([
         loader: ()=> fetch('http://localhost:6500/orders')
        },
        {
-        path: '/dashboard/addproducts',
+        path: '/dashboard/addproduct',
         element: <AddProduct></AddProduct>
        
        },
        {
         path: '/dashboard/myproduct',
         element: <MyProducts></MyProducts>,
-        // loader: ()=> fetch('http://localhost:6500/products')
+       
        },
        {
         path: '/dashboard/allseller',
         element: <AllSeller></AllSeller>,
-        loader: ()=> fetch('http://localhost:6500/allSeller')
+        // loader: ()=> fetch('http://localhost:6500/allSeller')
        },
        {
         path: '/dashboard/allbuyer',

@@ -34,9 +34,11 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Log In</a>
-              </li>
+              {user?.uid || (
+                <li>
+                  <a>Log In</a>
+                </li>
+              )}
               <li>
                 <a>Registration</a>
               </li>
@@ -51,15 +53,17 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-          <li>
+            <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
+            {!user?.uid && (
+                <li>
+                  <Link to="/login">Log In</Link>
+                </li>
+              )}
+            {/* <li>
               <Link to="/registration">Registration</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/blogs">Blog</Link>
             </li>
@@ -70,9 +74,19 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user?.uid ? (
-            <a onClick={handleLogOut} className="btn btn-sm bg-gradient-to-r from-violet-500 to-pink-500">Log Out</a>
+            <a
+              onClick={handleLogOut}
+              className="btn btn-sm bg-gradient-to-r from-violet-500 to-pink-500"
+            >
+              Log Out
+            </a>
           ) : (
-            <a className="btn btn-sm bg-gradient-to-r from-violet-500 to-pink-500">Log In</a>
+            <Link
+              to="/login"
+              className="btn btn-sm bg-gradient-to-r from-violet-500 to-pink-500"
+            >
+              Log In
+            </Link>
           )}
         </div>
       </div>

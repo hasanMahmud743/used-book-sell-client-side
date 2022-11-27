@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../Context/Contexts";
 
 const AddProduct = () => {
   const { user } = useContext(authContext);
+  const navigate = useNavigate()
 
   const {
     register,
@@ -24,6 +26,7 @@ const AddProduct = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data)
+        navigate('/dashboard/myproduct')
     })
   };
 
