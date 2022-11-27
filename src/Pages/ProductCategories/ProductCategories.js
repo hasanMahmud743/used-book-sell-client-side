@@ -62,7 +62,7 @@ const ProductCategories = () => {
               <p>{cat.post_date}</p>
 
               <div className="card-actions">
-                <label htmlFor={cat._id} className="btn btn-primary">
+                <label htmlFor={cat._id} className="btn bg-gradient-to-r from-violet-500 to-pink-500 btn-primary">
                   Book Now
                 </label>
               </div>
@@ -160,7 +160,7 @@ const ProductCategories = () => {
                       />
                     </div>
                   </div>
-                  <input   type='submit' className="btn btn-primary mt-4 w-full" value='submit' />
+                  <input   type='submit' className="btn bg-gradient-to-r from-violet-500 to-pink-500 btn-primary mt-4 w-full" value='submit' />
                   {/* <p type='submit' className="btn btn-primary" value='submit' /> */}
                 </form>
                
