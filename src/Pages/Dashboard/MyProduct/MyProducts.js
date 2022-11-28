@@ -17,7 +17,7 @@ const MyProducts = () => {
   }, [user?.email]);
 
   // useEffect(() => {
-  //   fetch(`http://localhost:6500/`)
+  //   fetch(`https://server-side-ashy.vercel.app/`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);
@@ -42,11 +42,11 @@ const MyProducts = () => {
 
   const handleAdvertise = id =>{
     console.log(id)
-    fetch(`http://localhost:6500/product/${id}`)
+    fetch(`https://server-side-ashy.vercel.app/product/${id}`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      fetch(`http://localhost:6500/advertise`,{
+      fetch(`https://server-side-ashy.vercel.app/advertise`,{
         method: 'POST',
         headers:{
           'content-type': 'application/json'

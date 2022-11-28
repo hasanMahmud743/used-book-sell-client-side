@@ -7,7 +7,7 @@ const AdvertisedItem = ({ advertise }) => {
       <p className="text-center font-bold text-4xl m-10">
         this is advertised item
       </p>
-      <div className="grid gap-10 grid-cols-2">
+      <div className="grid gap-10 md:grid-cols-2">
         {advertise.map((add) => (
           <div className="card  bg-base-100 shadow-xl">
             <figure className="px-5 pt-5">

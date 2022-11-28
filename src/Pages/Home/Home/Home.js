@@ -8,7 +8,7 @@ import Slider from "../Slider/Slider";
 const Home = () => {
   const [add, setAdd] =  useState([])
   useEffect(()=>{
-    fetch('http://localhost:6500/advertise')
+    fetch('https://server-side-ashy.vercel.app/advertise')
     .then(res => res.json())
     .then(data=> {
       console.log(data)

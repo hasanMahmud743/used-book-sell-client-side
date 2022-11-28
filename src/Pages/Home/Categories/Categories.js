@@ -6,7 +6,7 @@ const Categories = () => {
     <div className="py-20 bg-slate-200">
       <p className="text-center font-bold text-4xl">Product Categories:</p>
 
-      <div className=" text-center py-10">
+      <div className=" flex justify-center py-10">
         <Link to='/categories/web development'>
           {" "}
           <button className="btn bg-gradient-to-r from-violet-500 to-pink-500   mx-5">

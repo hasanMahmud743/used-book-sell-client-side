@@ -34,17 +34,21 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {user?.uid || (
+               <li>
+              <Link to="/">Home</Link>
+            </li>
+            {!user?.uid && (
                 <li>
-                  <a>Log In</a>
+                  <Link to="/login">Log In</Link>
                 </li>
               )}
-              <li>
-                <a>Registration</a>
-              </li>
-              <li>
-                <a>Blog</a>
-              </li>
+            
+            <li>
+              <Link to="/blogs">Blog</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -61,9 +65,7 @@ const Navbar = () => {
                   <Link to="/login">Log In</Link>
                 </li>
               )}
-            {/* <li>
-              <Link to="/registration">Registration</Link>
-            </li> */}
+            
             <li>
               <Link to="/blogs">Blog</Link>
             </li>
