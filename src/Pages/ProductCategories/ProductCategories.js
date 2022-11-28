@@ -13,10 +13,10 @@ const ProductCategories = () => {
     e.preventDefault()
     const phone = e.target.phone.value
     const address = e.target.address.value
-    const itemName = e.target
+    // const itemName = e.target
     const  order = {phone, address, email: user.email }
     console.log(order)
-    fetch('http://localhost:6500/categories',{
+    fetch('https://server-side-ashy.vercel.app/categories',{
         method: 'post',
         headers: {
             'content-type' : 'application/json'

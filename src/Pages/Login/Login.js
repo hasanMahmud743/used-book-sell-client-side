@@ -29,7 +29,7 @@ const Login = () => {
     signInUser(email, password).then((data) => {
       console.log(data.user.email);
 
-      fetch("http://localhost:6500/jwt", {
+      fetch("https://server-side-ashy.vercel.app/jwt", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -52,7 +52,7 @@ const Login = () => {
     googleSignIn()
       .then((data) => {
         console.log(data.user);
-        fetch("http://localhost:6500/jwt", {
+        fetch("https://server-side-ashy.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

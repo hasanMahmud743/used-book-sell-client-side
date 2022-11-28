@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         {
             path: '/categories/:title',
             element: <ProductCategories></ProductCategories>,
-            loader: ({params})=> fetch(`http://localhost:6500/categories/${params.title}`)
+            loader: ({params})=> fetch(`https://server-side-ashy.vercel.app/categories/${params.title}`)
             
 
         },
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
        {
         path: '/dashboard/allusers',
         element: <AllOrders></AllOrders>,
-        loader: ()=> fetch('http://localhost:6500/orders')
+        loader: ()=> fetch('https://server-side-ashy.vercel.app/orders')
        },
        {
         path: '/dashboard/addproduct',
@@ -70,12 +70,12 @@ export const router = createBrowserRouter([
        {
         path: '/dashboard/allseller',
         element: <AllSeller></AllSeller>,
-        // loader: ()=> fetch('http://localhost:6500/allSeller')
+        // loader: ()=> fetch('https://server-side-ashy.vercel.app/allSeller')
        },
        {
         path: '/dashboard/allbuyer',
         element: <AllBuyer></AllBuyer>,
-        // loader: ()=> fetch('http://localhost:6500/allBuyer')
+        // loader: ()=> fetch('https://server-side-ashy.vercel.app/allBuyer')
        },
     ]
    }

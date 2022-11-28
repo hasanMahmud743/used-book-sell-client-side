@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { authContext } from '../../../Context/Contexts';
 
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
   const { user } = useContext(authContext);
-  console.log(user?.email);
+  console.log(user?.email, products);
 
   useEffect(() => {
-    fetch(`http://localhost:6500/products?email=${user?.email}`)
+    fetch(`https://server-side-ashy.vercel.app/products?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,9 +16,20 @@ const MyProducts = () => {
       });
   }, [user?.email]);
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:6500/`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setProducts(data);
+  //     });
+  // }, [user?.email]);
+
+
+
   const handleDelete = (id) =>{
     console.log(id)
-    fetch(`http://localhost:6500/products/${id}`,{
+    fetch(`https://server-side-ashy.vercel.app/products/${id}`,{
       method: 'delete'
     })
     .then(res => res.json())
@@ -27,6 +39,30 @@ const MyProducts = () => {
       setProducts(remaining)
     })
   }
+
+  const handleAdvertise = id =>{
+    console.log(id)
+    fetch(`http://localhost:6500/product/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      fetch(`http://localhost:6500/advertise`,{
+        method: 'POST',
+        headers:{
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        toast.success('Added to advertise')
+      })
+
+      
+    })
+  }
+  
     // const products = useLoaderData();
     return (
         <div>
@@ -39,20 +75,23 @@ const MyProducts = () => {
                 <th>Description</th>
                 <th>Phone</th>
                 <th>Address</th>
+                <th>Advertise</th>
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {products.map((user, i) => (
+              {products.map((users, i) => (
+                // console.log(users)
                 <tr>
                   <th>{i + 1}</th>
-                  <td>{user?.name}</td>
-                  <td>{user?.description}</td>
+                  <td>{users?.name}</td>
+                  <td>{users?.description}</td>
+                  <td>{users?.year}</td>
+                  <td>{users.Location}</td>
+                  <td><button onClick={()=> handleAdvertise(users?._id)} className='btn btn-xs btn-outline'>Advertise</button></td>
 
-                  <td>{user?.year}</td>
-                  <td>{user.Location}</td>
                   <td>
-                    <button onClick={()=> handleDelete(user._id)} className="btn  btn-xs btn-circle">
+                    <button onClick={()=> handleDelete(users._id)} className="btn  btn-xs btn-circle">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-3 w-3"

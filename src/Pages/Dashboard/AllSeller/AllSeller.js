@@ -8,7 +8,7 @@ const AllSeller = () => {
   // setSeller(data)
 
   useEffect(() => {
-    fetch(`http://localhost:6500/allSeller`)
+    fetch(`https://server-side-ashy.vercel.app/allSeller`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -18,7 +18,7 @@ const AllSeller = () => {
 
   const handleDelete = (id) =>{
     console.log(id)
-    fetch(`http://localhost:6500/allSeller/${id}`,{
+    fetch(`https://server-side-ashy.vercel.app/allSeller/${id}`,{
       method: 'delete'
     })
     .then(res => res.json())

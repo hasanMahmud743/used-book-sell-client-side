@@ -6,7 +6,7 @@ const AllBuyer = () => {
   const [buyer, setBuyer] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:6500/allBuyer`)
+    fetch(`https://server-side-ashy.vercel.app/allBuyer`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,7 +15,7 @@ const AllBuyer = () => {
   }, [user?.email]);
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:6500/allSeller/${id}`, {
+    fetch(`https://server-side-ashy.vercel.app/allSeller/${id}`, {
       method: "delete",
     })
       .then((res) => res.json())

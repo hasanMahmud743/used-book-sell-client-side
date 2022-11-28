@@ -9,7 +9,7 @@ const Dashboard = () => {
   console.log(user?.email, users);
 
   useEffect(() => {
-    fetch(`http://localhost:6500/allUser?email=${user?.email}`)
+    fetch(`https://server-side-ashy.vercel.app/allUser?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.accountType);

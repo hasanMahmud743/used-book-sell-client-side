@@ -16,7 +16,7 @@ const AddProduct = () => {
   const formSubmit = (data) => {
     const products = {...data , email: user.email }
     console.log(data);
-    fetch('http://localhost:6500/products',{
+    fetch('https://server-side-ashy.vercel.app/products',{
         method: 'post',
         headers: {
             'content-type': 'application/json'

@@ -40,7 +40,7 @@ const Registration = () => {
           accountType : sellerAccount ? 'seller' : 'normal'
         }
 
-        fetch("http://localhost:6500/jwt", {
+        fetch("https://server-side-ashy.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -53,7 +53,7 @@ const Registration = () => {
             localStorage.setItem("access-token", data.token);
           });
 
-        fetch('http://localhost:6500/users',{
+        fetch('https://server-side-ashy.vercel.app/users',{
           method: 'post',
           headers: {
             'content-type' : 'application/json'
@@ -79,7 +79,7 @@ const Registration = () => {
     googleSignIn()
       .then((data) => {
         console.log(data.user);
-        fetch("http://localhost:6500/jwt", {
+        fetch("https://server-side-ashy.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
